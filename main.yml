@@ -3,19 +3,14 @@
   hosts: localhost 
   tasks:
 
-    - name: Create CTL IT Group
-      clc_group:
-        name: 'CTL IT Group'
-        location: UC1
-
     - name: Provision a RHEL Server
       clc_server:
         name: 'ctlit-demo-rhel-001'
         template: rhel-6-64
         password: 'testing-password'
         count: 1
-        group: CTL IT Group
-        network_id: "IT Network"
+        location: 'UC1'
+        group: 'CTL IT Group'
         cpu: 1
         memory: 2
         ttl: 898899
