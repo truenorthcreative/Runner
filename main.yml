@@ -7,7 +7,7 @@
       clc_server:
         name: 'cktst'
         template: rhel-6-64
-        password: 'testing-password'
+        password: 'C35vqNvmkIuQ'
         count: 1
         location: 'UC1'
         group: 'CTL IT Group'
