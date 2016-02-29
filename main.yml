@@ -17,7 +17,6 @@
         password: 'testing-password'
         count: 1
         group: CTL IT Group
-        state: present
         network_id: "IT Network"
         cpu: 1
         memory: 2
