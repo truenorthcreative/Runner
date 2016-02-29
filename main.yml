@@ -20,7 +20,7 @@
         state: present
         network_id: "IT Network"
         cpu: 1
-        memoryGB: 2
+        memory: 2
         ttl: 898899
 
     - name: Deploy SSH Key to New Servers
