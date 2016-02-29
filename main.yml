@@ -21,7 +21,7 @@
         ttl: 898899
         state: present
 
-    - name: Deploy SSH Key to New Servers
+    - name: Run Shell Script
       shell: echo "Hello world"
 
 
