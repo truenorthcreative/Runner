@@ -12,7 +12,7 @@
 
     - name: Provision a RHEL Server
       clc_server:
-        name: 'ctlit-demo-rhel'
+        name: 'ctlit-demo-rhel-001'
         template: rhel-6-64
         count: 1
         group: CTL IT Group
@@ -21,7 +21,14 @@
         memoryGB: 2
         ttl: 898899
 
-    #<NEED TO ADD CUSTOMIZATION SCRIPT AGAINST SERVER>
+    - name: Deploy SSH Key to New Servers
+      shell: echo "Hello world"
+
+
+
+
+
+
 
 
     # - name: Provision a Windows 2012 Server
