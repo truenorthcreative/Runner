@@ -19,6 +19,7 @@
         cpu: 1
         memory: 2
         ttl: 898899
+        state: present
 
     - name: Deploy SSH Key to New Servers
       shell: echo "Hello world"
