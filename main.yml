@@ -1,8 +1,8 @@
 ---
 - name: CTL IT Stuff
   hosts: localhost 
-  tasks:
 
+  tasks:
     - name: Provision a RHEL Server
       clc_server:
         name: 'ctlit-demo-rhel-001'
@@ -14,7 +14,6 @@
         cpu: 1
         memory: 2
         ttl: 898899
-        state: present
 
     - name: Run Shell Script
       shell: echo "Hello world"
