@@ -1,0 +1,39 @@
+- name: Create CTL IT Group
+  clc_group:
+    name: "CTL IT Group"
+    location: UC1
+    state: present
+
+
+- name: Provision a RHEL Server
+  clc_server:
+    name: ctlit-demo-rhel
+    template: rhel-6-64
+    count: 1
+    group: CTL IT Group
+    state: present
+    cpu: 1
+    memoryGB: 2
+    #ttl: (is it seconds/timestamp?)
+
+#<NEED TO ADD CUSTOMIZATION SCRIPT AGAINST SERVER>
+
+
+# - name: Provision a Windows 2012 Server
+#   clc_server:
+#     name: ctlit-demo-windows
+#     template: windows-2012-r2  <-- this is a guess for the template name
+#     count: 1
+#     group: CTL IT Group
+#     state: present
+#     cpu: 1
+#     memoryGB: 4
+#     #ttl: (is it seconds/timestamp?)
+#     type: standard
+# 	storage_type: standard
+# 	additional_disks: 
+# 	- sizeGB: 100
+#         type: partitioned
+#         path: E:/something
+
+#<NEED BLUEPRINT RUN AGAINST WIN SERVER>
