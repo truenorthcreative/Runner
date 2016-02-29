@@ -7,8 +7,6 @@
       clc_group:
         name: 'CTL IT Group'
         location: UC1
-        state: present
-
 
     - name: Provision a RHEL Server
       clc_server:
