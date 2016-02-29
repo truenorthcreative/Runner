@@ -19,7 +19,7 @@
         state: present
         cpu: 1
         memoryGB: 2
-        #ttl: (is it seconds/timestamp?)
+        ttl: 898899
 
     #<NEED TO ADD CUSTOMIZATION SCRIPT AGAINST SERVER>
 
