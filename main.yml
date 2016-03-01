@@ -13,7 +13,7 @@
         group: 'CTL IT Group'
         cpu: 1
         memory: 2
-        ttl: 500
+        ttl: 3700
 
     - name: Run Shell Script
       shell: echo "Hello world"
