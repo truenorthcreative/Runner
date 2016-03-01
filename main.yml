@@ -5,7 +5,7 @@
 
     - name: Provision a RHEL Server
       clc_server:
-        name: 'cktst'
+        name: 'RHELIT'
         template: rhel-6-64
         password: 'C35vqNvmkIuQ'
         count: 1
@@ -13,7 +13,7 @@
         group: 'CTL IT Group'
         cpu: 1
         memory: 2
-        ttl: 898899
+        ttl: 500
 
     - name: Run Shell Script
       shell: echo "Hello world"
