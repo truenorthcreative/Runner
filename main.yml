@@ -1,6 +1,6 @@
 ---
-- name: CTL IT Stuff
-  hosts: localhost 
+- name: Demo Stuff
+  hosts: localhost
   tasks:
 
     - name: Provision a RHEL Server
@@ -10,13 +10,12 @@
         password: 'C35vqNvmkIuQ'
         count: 1
         location: 'UC1'
-        group: 'CTL IT Group'
         cpu: 1
         memory: 2
         ttl: 3700
-
-    - name: Run Shell Script
-      shell: echo "Hello world"
+    # 
+    # - name: Run Shell Script
+    #   shell: echo "Hello world"
 
 
 
@@ -37,7 +36,7 @@
     #     #ttl: (is it seconds/timestamp?)
     #     type: standard
     #   storage_type: standard
-    #   additional_disks: 
+    #   additional_disks:
     #   - sizeGB: 100
     #         type: partitioned
     #         path: E:/something
