@@ -101,14 +101,8 @@ ElseIf ((Get-Service "WinRM").Status -ne "Running")
 # WinRM should be running; check that we have a PS session config.
 If (!(Get-PSSessionConfiguration -Verbose:$false) -or (!(Get-ChildItem WSMan:\localhost\Listener)))
 {
-  if ($SkipNetworkProfileCheck) {
     Write-Verbose "Enabling PS Remoting without checking Network profile."
     Enable-PSRemoting -SkipNetworkProfileCheck -Force -ErrorAction Stop
-  }
-  else {
-    Write-Verbose "Enabling PS Remoting"
-    Enable-PSRemoting -Force -ErrorAction Stop
-  }
 }
 Else
 {
