@@ -34,22 +34,21 @@
 
   tasks:
 
-    - name: Provision Windows Server 2012
-      clc_server:
-        name: "{{server_name}}"
-        group: "{{server_group}}"
-        template: "{{server_template}}"
-        password: "{{pswd}}"
-        count: "{{server_count}}"
-        location: "{{datacenter_name}}"
-        cpu: "{{def_cpu}}" # Default -- not necessary
-        memory: "{{def_mem}}" # Default -- not necessary
-      register: provisione
+    # - name: Provision Windows Server 2012
+    #   clc_server:
+    #     name: "{{server_name}}"
+    #     group: "{{server_group}}"
+    #     template: "{{server_template}}"
+    #     password: "{{pswd}}"
+    #     count: "{{server_count}}"
+    #     location: "{{datacenter_name}}"
+    #     cpu: "{{def_cpu}}" # Default -- not necessary
+    #     memory: "{{def_mem}}" # Default -- not necessary
+    #   register: provisione
 
 
     - name: Install SQL
       clc_blueprint_package:
-        server_ids: "{{ item }}"
+        server_ids: UC1WFTCCKSQL101
         package_id: 7286d4ea-1c83-11e2-b279-e02d6288709b
         package_params: {'T3.sql.SAPassword':'{{db_pswd}}', 'ProductCode':'{{db_version}}', 'T3.sql.Features':'{{db_features}}', 'T3.sql.ASMode':'{{db_mode}}', 'T3.sql.Instance':'{{db_name}}', 'T3.sql.SQLCOLLATION':'{{db_collation}}'}
-      with_items: provisioned.servers
