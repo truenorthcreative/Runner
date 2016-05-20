@@ -18,6 +18,12 @@
   gather_facts: true
   tasks:
 
+    clc_blueprint_package:
+        server_ids:
+            - UC1WFTCCKSQL101
+        package_id: 5e824098-2366-48af-8e88-63512d17938f
+        package_params: {}
+
     
     - name: run test script
       script: ConfigureRemotingForAnsible.ps1
