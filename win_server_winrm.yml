@@ -40,7 +40,8 @@
       register: provisioned
 
     - name: Run Winrm
-      clc_blueprint_package: "{{item}}"
+      clc_blueprint_package: 
+        server_ids: "{{ item }}"
         package_id: 5e824098-2366-48af-8e88-63512d17938f
         package_params: {}
       with_items: provisioned.servers
