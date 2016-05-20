@@ -21,7 +21,7 @@
   tasks:
 
     - name: run upgrade script
-      script: scripts/upgrade_powershell.ps1
+      script: upgrade_powershell.ps1
     - name: run test script
-      script: scripts/ConfigureRemotingForAnsible.ps1
+      script: ConfigureRemotingForAnsible.ps1
       
