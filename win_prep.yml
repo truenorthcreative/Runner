@@ -14,8 +14,7 @@
 
 ---
 - name: Prep Windows Machine
-  hosts: UC1WFTCCKSQL101
-  hosts: localhost
+  hosts: windows
   connection: local
   gather_facts: true
   tasks:
