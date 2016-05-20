@@ -14,7 +14,7 @@
 
 ---
 - name: Windows Server 2012
-  hosts: localhost
+  hosts: UC1WFTCCKSQL101
   connection: local
   gather_facts: true
   vars:
