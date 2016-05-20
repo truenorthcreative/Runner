@@ -14,17 +14,26 @@
 
 ---
 - name: SQL Server 2012
-  hosts: localhost
+  hosts: UC1WFTCCKSQL101
   connection: local
   gather_facts: true
   vars:
     server_name: WINSRV
+    server_group: Default Group
+    server_template: WIN2012DTC-64
     server_count: 1
     pswd: C35vqNvmkIuQ
     datacenter_name: UC1
     def_cpu: 1
     def_mem: 2
-    
+
+    db_version: SOFT-MSSQLSTD2012-CPU
+    db_pswd: C35vqNvmkIuQ
+    db_features: SQLEngine
+    db_mode: ASM
+    db_collation: SQL_Latin1_General_CP1_CI_AS
+    db_name: MSSQL
+
   tasks:
 
     - name: Provision Windows Server 2012
@@ -38,11 +47,37 @@
         cpu: "{{def_cpu}}" # Default -- not necessary
         memory: "{{def_mem}}" # Default -- not necessary
       register: provisioned
-
+  #
+  # - name: Run Winrm
+  #   clc_blueprint_package:
+  #     server_ids:
+  #         - UC1WFTCCKSQL101
+  #     package_id: 5e824098-2366-48af-8e88-63512d17938f
+  #     package_params: {}
+  #
+  #
+  # - name: Apply PowerShell Upgrade
+  #   clc_blueprint_package:
+  #     server_ids: "{{ item }}"
+  #     package_id: 37510ad0-cf2b-4f4b-a1bc-a0394f15e8cf
+  #     package_params: {}
+  #   with_items: provisioned.servers
+  #
+  # - name: Apply Hotfix
+  #   clc_blueprint_package:
+  #     server_ids: "{{ item }}"
+  #     package_id: 702ce6bf-37a3-4711-a489-299b5e7ecbc0
+  #     package_params: {}
+  #   with_items: provisioned.servers
     - name: Run Winrm
-      clc_blueprint_package: 
+      clc_blueprint_package:
         server_ids: "{{ item }}"
         package_id: 5e824098-2366-48af-8e88-63512d17938f
         package_params: {}
       with_items: provisioned.servers
-    
+    # - name: Install SQL
+    #   clc_blueprint_package:
+    #     server_ids:
+    #         - UC1WFTCCKSQL101
+    #     package_id: 7286d4ea-1c83-11e2-b279-e02d6288709b
+    #     package_params: {'T3.sql.SAPassword':'{{db_pswd}}', 'ProductCode':'{{db_version}}', 'T3.sql.Features':'{{db_features}}', 'T3.sql.ASMode':'{{db_mode}}', 'T3.sql.Instance':'{{db_name}}', 'T3.sql.SQLCOLLATION':'{{db_collation}}'}
