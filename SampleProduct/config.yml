@@ -1,0 +1,223 @@
+name: Super Cool Product Name
+description: This is the description of the super cool product
+shortDescription: This is the short description of the super cool product
+imagePath: https://i.imgur.com/x2KufBj.png
+version: 1.2.3
+defaultPlaybook: playbook.yml
+updateDate: Jan 1, 2016
+public: false
+
+# Allow for single panel fact collection.
+fields:
+
+  # Text Block Default
+  - name: text_block_default
+    type: textblock
+    title: Short Title (Default)
+    text: This is description text that can provide valuable information to the consumer.
+
+  # Text Block Info
+  - name: text_block_info
+    type: textblock
+    level: info
+    title: Short Title (Info)
+    text: This is description text that can provide valuable information to the consumer.
+
+  # Text Block Warning
+  - name: text_block_warning
+    type: textblock
+    level: warning
+    title: Short Title (Warning)
+    text: This is description text that can provide valuable information to the consumer.
+
+  # Text Block Danger
+  - name: text_block_danger
+    type: textblock
+    level: danger
+    title: Short Title (Danger)
+    text: This is description text that can provide valuable information to the consumer.
+
+  # Toggle field.
+  - name: toggleTest
+    displayName: Toggle Test
+    helpText: Help Text for toggle
+    type: toggle
+    required: true
+
+  # Toggle field.
+  - name: toggleTestDefault
+    displayName: Toggle Test (Default)
+    type: toggle
+    default: true
+    required: true
+
+  # Data Center field.
+  - name: datacenter
+    displayName: Datacenter Picker
+    type: datacenters
+    helpText: Help Text for datacenters
+    required: true
+
+  # Networks field.
+  - name: networks
+    displayName: Network Picker
+    type: networks
+    helpText: Help Text for networks
+    parent: datacenter
+    required: true
+
+  # Groups field.
+  - name: group
+    displayName: Group Picker
+    type: groups
+    helpText: Help Text for groups
+    parent: datacenter
+    required: true
+
+  # Servers field.
+  - name: servers_multiple
+    displayName: Servers (Add To Inventory)
+    type: servers
+    helpText: Help Text for servers
+    parent: datacenter
+    required: true
+    multiple: true
+    inventory: true
+
+  # Servers field.
+  - name: servers_single
+    displayName: Servers Single (Add To Inventory)
+    type: servers
+    parent: datacenter
+    required: true
+    multiple: false
+    inventory: true
+
+  # Servers field.
+  - name: servers_multiple_props
+    displayName: Servers (Add To Properties)
+    type: servers
+    parent: datacenter
+    required: true
+    multiple: true
+    inventory: false
+
+  # Servers field.
+  - name: servers_single_props
+    displayName: Servers Single (Add To Properties)
+    type: servers
+    parent: datacenter
+    required: true
+    multiple: false
+    inventory: false
+
+  # Sample text field
+  - name: instance_name
+    displayName: Instance Name
+    type: text
+    helpText: Help Text for text
+    required: true
+    minLength: 1
+    maxLength: 35
+
+  # Sample text field
+  - name: instance_name_dflt
+    displayName: Instance Name (with default)
+    type: text
+    default: DFLT
+    required: true
+    minLength: 1
+    maxLength: 35
+
+  # Sample password field
+  - name: root_password
+    displayName: Root Password
+    type: password
+    helpText: Help Text for password
+    required: true
+
+  - name: strong_password
+    displayName: Strong Password
+    validationMsg: A password must be at least 9 characters and contain at least 3 of the following (uppercase letters, lowercase letters, numbers, symbols)
+    requiredStrength: 3
+    dissallowedCharacters: "/"
+    type: passwordStrength
+    helpText: Help Text for passwordStrength
+    required: true
+
+  # Sample numeric field
+  - name: node_count
+    displayName: Cluster Nodes
+    type: number
+    helpText: Help Text for number
+    required: true
+    min: 6
+    max: 99
+
+  # Sample numeric field
+  - name: node_count_dftl
+    displayName: Cluster Nodes (with default)
+    type: number
+    default: 8
+    required: true
+    min: 6
+    max: 99
+
+  # Sample slider field
+  - name: slider
+    displayName: Slider Field
+    type: slider
+    helpText: Help Text for slider
+    required: true
+    min: 1
+    max: 10
+    default: 4
+
+  # Sample toggle field
+#  - name: toggle
+#    displayName: Toggle Field
+#    type: toggle
+#    required: true
+#    default: true
+
+  # Sample text area field
+  - name: license
+    displayName: License
+    type: textarea
+    helpText: Help Text for textarea
+    required: true
+
+  # Sample network, should load networks based on account alias.
+  - name: selectName
+    displayName: Select Display Name
+    type: select
+    helpText: Help Text for select
+    required: true
+    options:
+      - displayName: displayNameOne
+        value: optionValueOne
+      - displayName: displayNameTwo
+        value: optionValueTwo
+        selected: true
+      - displayName: displayNameThree
+        value: optionValueThree
+
+  - name: multiSelectName
+    displayName: Multi-Select Display Name
+    type: select
+    required: true
+    multiple: true
+    options:
+      - displayName: displayNameOne
+        value: optionValueOne
+      - displayName: displayNameTwo
+        value: optionValueTwo
+        selected: true
+      - displayName: displayNameThree
+        value: optionValueThree
+
+tags:
+  - cloud
+  - storage
+  - block
+  - seph

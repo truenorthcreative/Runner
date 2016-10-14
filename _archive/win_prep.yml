@@ -14,8 +14,7 @@
 
 ---
 - name: Prep Windows Machine
-  hosts: UC1WFTCCKSQL101
-  hosts: localhost
+  hosts: windows
   connection: local
   gather_facts: true
   tasks:
@@ -24,4 +23,3 @@
       script: scripts/upgrade_powershell.ps1
     - name: run test script
       script: scripts/ConfigureRemotingForAnsible.ps1
-      
